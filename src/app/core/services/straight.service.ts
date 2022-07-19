@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Rank } from 'src/app/rank';
 import { Card } from '../../card';
 
 @Injectable({
