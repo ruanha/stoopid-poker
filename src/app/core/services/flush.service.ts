@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Card } from '../../card';
+import { Card } from '../models/card.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,6 @@ export class FlushService {
 
   constructor() { }
 
-  isFlush(cards: Card[]): boolean {
-    const suits = cards.map(card => card.suit);
-    return suits.every(suit => suit === suits[0]);
-  }
+  isFlush = (cards: Card[]): boolean => 
+    cards.map(card => card.suit).every(suit => suit === cards[0].suit);
 }

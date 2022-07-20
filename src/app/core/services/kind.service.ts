@@ -9,7 +9,6 @@ export class KindService {
 
   constructor() { }
 
-  kind(n: number, ranks: number[]): number | undefined {
-    return ranks.find(rank => ranks.filter(r => r === rank).length === n);
-  }
+  kind = (n: number, ranks: number[]): number | undefined => 
+    ranks.find(rank => ranks.filter(r => r === rank).length === n);
 }
