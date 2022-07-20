@@ -1,5 +1,5 @@
-import { Rank } from "./rank";
-import { Suit } from "./suit";
+import { Rank } from "./rank.enum";
+import { Suit } from "./suit.enum";
 
 
 export interface Card {
