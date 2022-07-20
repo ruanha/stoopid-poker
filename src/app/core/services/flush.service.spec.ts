@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Suit } from 'src/app/core/models/suit';
+import { Suit } from 'src/app/core/models/suit.enum';
 
 import { FlushService } from './flush.service';
 

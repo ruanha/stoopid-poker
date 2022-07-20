@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Card } from 'src/app/core/models/card';
-import { Rank } from 'src/app/core/models/rank';
+import { Card } from 'src/app/core/models/card.model';
+import { Rank } from 'src/app/core/models/rank.enum';
 
 @Injectable({
   providedIn: 'root'
