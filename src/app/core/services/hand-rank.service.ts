@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Card } from 'src/app/card';
+import { Card } from 'src/app/core/models/card';
 import { FlushService } from './flush.service';
 import { KindService } from './kind.service';
 import { StraightService } from './straight.service';

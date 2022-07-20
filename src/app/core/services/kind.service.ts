@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Card } from 'src/app/card';
-import { Rank } from 'src/app/rank';
+import { Card } from 'src/app/core/models/card';
+import { Rank } from 'src/app/core/models/rank';
 
 @Injectable({
   providedIn: 'root'

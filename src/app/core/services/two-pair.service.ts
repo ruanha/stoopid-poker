@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Card } from 'src/app/card';
+import { Card } from 'src/app/core/models/card';
 import { KindService } from './kind.service';
 
 @Injectable({
