@@ -5,6 +5,7 @@ import { FlushService } from './flush.service';
 import { KindService } from './kind.service';
 import { StraightService } from './straight.service';
 import { Score } from '../models/score.enum';
+import { TwoPairService } from './two-pair.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class HandRankService {
   constructor(
     public straight: StraightService,
     public flush: FlushService,
-    public kind: KindService
+    public kind: KindService,
+    public twoPair: TwoPairService
   ) { }
 
   rank(hand: Card[]) {
@@ -51,7 +53,9 @@ export class HandRankService {
     }
 
     // two pair
-    // ToDo: fix this
+    if (this.twoPair.twoPair(hand)) {
+      return [Score.twoPair, this.twoPair.twoPair(hand)]
+    }
 
     // One pair
     if (this.kind.kind(2, ranks)) {

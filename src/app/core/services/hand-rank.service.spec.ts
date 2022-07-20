@@ -49,10 +49,10 @@ describe('HandRankService', () => {
   ] // three of a kind
   const tp = [
     { rank: 2, suit: Suit.Diamonds },
+    { rank: 2, suit: Suit.Hearts },
     { rank: 3, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
+    { rank: 7, suit: Suit.Hearts },
+    { rank: 7, suit: Suit.Hearts },
   ] // two pair
   const op = [
     { rank: 2, suit: Suit.Diamonds },
@@ -60,7 +60,7 @@ describe('HandRankService', () => {
     { rank: 4, suit: Suit.Hearts },
     { rank: 5, suit: Suit.Hearts },
     { rank: 5, suit: Suit.Hearts },
-  ]
+  ] // one pair
   const hc = [
     { rank: 2, suit: Suit.Diamonds },
     { rank: 3, suit: Suit.Hearts },
@@ -68,6 +68,7 @@ describe('HandRankService', () => {
     { rank: 5, suit: Suit.Hearts },
     { rank: 7, suit: Suit.Hearts },
   ] // highest card
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -102,7 +103,9 @@ describe('HandRankService', () => {
     expect(service.rank(tk)).toEqual([3, 3, [6, 3, 3, 3, 2]]);
   });
 
-  // test for two pairs when done
+  it('should return correct value for two pairs', () => {
+    expect(service.rank(tp)).toEqual([2, [2, 7]]);
+  });
 
   it('should return correct value for a pair', () => {
     expect(service.rank(op)).toEqual([1, 5, [5, 5, 4, 3, 2]]);
