@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { Suit } from 'src/app/core/models/suit.enum';
+import Hand from '../models/hand.model';
 
 import { FlushService } from './flush.service';
+import hands from './test-data/hands.data'
 
 describe('FlushService', () => {
   let service: FlushService;
@@ -16,25 +17,17 @@ describe('FlushService', () => {
   });
 
   it('should return true if the cards are a flush', () => {
-    const cards = [
-      { rank: 2, suit: Suit.Clubs },
-      { rank: 3, suit: Suit.Clubs },
-      { rank: 4, suit: Suit.Clubs },
-      { rank: 5, suit: Suit.Clubs },
-      { rank: 6, suit: Suit.Clubs },
-    ];
-    expect(service.isFlush(cards)).toBeTruthy();
+    expect(service.isFlush(hands.flush)).toBeTruthy();
   });
 
   it('should return false if the cards are not a flush', () => {
-    const cards = [
-      { rank: 2, suit: Suit.Diamonds },
-      { rank: 3, suit: Suit.Clubs },
-      { rank: 4, suit: Suit.Clubs },
-      { rank: 5, suit: Suit.Clubs },
-      { rank: 6, suit: Suit.Clubs },
-    ];
-    expect(service.isFlush(cards)).toBeFalsy();
+    expect(service.isFlush(hands.four_of_a_kind)).toBeFalsy();
+    expect(service.isFlush(hands.full_house)).toBeFalsy();
+    expect(service.isFlush(hands.straight)).toBeFalsy();
+    expect(service.isFlush(hands.three_of_a_kind)).toBeFalsy();
+    expect(service.isFlush(hands.two_pair)).toBeFalsy();
+    expect(service.isFlush(hands.one_pair)).toBeFalsy();
+    expect(service.isFlush(hands.high_card)).toBeFalsy();
   });
-  
+
 });
