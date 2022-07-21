@@ -17,17 +17,15 @@ describe('FlushService', () => {
   });
 
   it('should return true if the cards are a flush', () => {
-    expect(service.isFlush(hands.flush)).toBeTruthy();
+    expect(service.isFlush(hands['flush'])).toBeTruthy();
   });
 
   it('should return false if the cards are not a flush', () => {
-    expect(service.isFlush(hands.four_of_a_kind)).toBeFalsy();
-    expect(service.isFlush(hands.full_house)).toBeFalsy();
-    expect(service.isFlush(hands.straight)).toBeFalsy();
-    expect(service.isFlush(hands.three_of_a_kind)).toBeFalsy();
-    expect(service.isFlush(hands.two_pair)).toBeFalsy();
-    expect(service.isFlush(hands.one_pair)).toBeFalsy();
-    expect(service.isFlush(hands.high_card)).toBeFalsy();
+    for (let hand in hands) {
+      if (hand !== 'flush' && hand !== 'straight_flush') {
+        expect(service.isFlush(hands[hand])).toBeFalsy();
+      }
+    }
   });
 
 });

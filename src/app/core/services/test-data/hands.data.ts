@@ -1,3 +1,4 @@
+import Hand from "../../models/hand.model";
 import { Suit } from "../../models/suit.enum";
 
 let sf = [
@@ -75,5 +76,5 @@ const testData = {
     two_pair: tp,
     one_pair: op,
     high_card: hc
-}
+} as { [key: string]: Hand };
 export default testData;
