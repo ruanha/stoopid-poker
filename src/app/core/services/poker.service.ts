@@ -14,34 +14,23 @@ export class PokerService {
 
   /**
    * @param hands - an array of hands
-   * @returns an array of hands, containing only the hand(s) with the highest rank
+   * @returns an array of hands, containing only the hand(s) with the highest rank/scores
    */
   poker(hands: Hand[]) {
-    const ranks = hands.map(hand => this.handRank.rank(hand)) as any;
-    let maxRank = 0;
-    for (let rank of ranks) {
-      if (rank[0] > maxRank) {
-        maxRank = rank[0];
-      }
-    }
+    // get rank of each hand
+    const ranks = hands.map(hand => this.handRank.rank(hand));
 
-    const hands_with_max_rank = hands.filter(hand => this.handRank.rank(hand)[0] === maxRank);
-
-    let winners: Hand[] = [];
-    for (let hand of hands_with_max_rank) {
-      if (winners.length === 0) {
-        winners.push(hand);
-      }
-      else {
-        winners = this.max(hand, winners);
-      }
-    }
-    return winners;
+    // return the highest rank(s)
+    return hands.reduce((acc, curr) => {
+      return this.compare(curr, acc);
+    }, [hands[0]]);
   }
 
-  max(hand: Hand, winners: Hand[]) {
-    if (hand > winners[0]) return [hand];
-    if (hand < winners[0]) return winners;
+  compare(hand: Hand, winners: Hand[]) {
+    const rank = this.handRank.rank(hand);
+    const currentWinnerRank = this.handRank.rank(winners[0]);
+    if (rank > currentWinnerRank) return [hand];
+    if (rank < currentWinnerRank) return winners;
     return [hand, ...winners];
   }
 
