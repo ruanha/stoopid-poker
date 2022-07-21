@@ -17,13 +17,11 @@ export class PokerService {
    * @returns an array of hands, containing only the hand(s) with the highest rank/scores
    */
   poker(hands: Hand[]) {
-    // get rank of each hand
-    const ranks = hands.map(hand => this.handRank.rank(hand));
-
-    // return the highest rank(s)
-    return hands.reduce((acc, curr) => {
-      return this.compare(curr, acc);
-    }, [hands[0]]);
+    let result = hands.slice(0, 1);
+    for (let i = 1; i < hands.length; i++) {
+      result = this.compare(hands[i], result);
+    }
+    return result;
   }
 
   compare(hand: Hand, winners: Hand[]) {

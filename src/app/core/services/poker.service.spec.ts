@@ -30,6 +30,11 @@ describe('PokerService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('should return the list of winners from a list of hands', () => {
+    const hands = [tk_1, tk_2];
+    expect(service.poker(hands).length).toEqual(2);
+    //:expect(service.poker(hands)[0]).toEqual(tk_1);
+  });
 });
 
 describe('PokerService helper function "compare', () => {
