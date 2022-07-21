@@ -1,6 +1,22 @@
 import { TestBed } from '@angular/core/testing';
+import { Suit } from '../models/suit.enum';
 
 import { PokerService } from './poker.service';
+
+  const tk_1 = [
+    { rank: 2, suit: Suit.Clubs },
+    { rank: 4, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+  ];
+  const tk_2 = [
+    { rank: 2, suit: Suit.Clubs },
+    { rank: 4, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+    { rank: 6, suit: Suit.Clubs },
+  ];
 
 describe('PokerService', () => {
   let service: PokerService;
@@ -12,5 +28,55 @@ describe('PokerService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+});
+
+describe('PokerService helper function "compare', () => {
+  let service: PokerService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(PokerService);
+  });
+
+  it('should return true if the new hand is greater', () => {
+
+    const newHand = [
+      { rank: 2, suit: Suit.Clubs },
+      { rank: 5, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+    ];
+    expect(service.compare(newHand, [tk_1, tk_2]).length).toEqual(1); // the result array is length 1
+    expect(service.compare(newHand, [tk_1, tk_2])[0]).toEqual(newHand); // the item in the array is the new hand
+  });
+
+  it('should return the same array if the new hand rank is less than the current winner', () => {
+    const newHand = [
+      { rank: 1, suit: Suit.Clubs },
+      { rank: 2, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+    ];
+    expect(service.compare(newHand, [tk_1, tk_2]).length).toEqual(2); // the result array is length 2
+    expect(service.compare(newHand, [tk_1, tk_2])[0]).toEqual(tk_1); // the items in the array remain the same
+    expect(service.compare(newHand, [tk_1, tk_2])[1]).toEqual(tk_2); // the items in the array remain the same
+  });
+
+  it('it should return the array concatinated with the new hand, if they are equal', () => {
+    const newHand = [
+      { rank: 2, suit: Suit.Clubs },
+      { rank: 4, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      ];
+      expect(service.compare(newHand, [tk_1, tk_2]).length).toEqual(3); // the result array is length 3
+      expect(service.compare(newHand, [tk_1, tk_2])[0]).toEqual(tk_1); // the items in the array remain the same
+      expect(service.compare(newHand, [tk_1, tk_2])[1]).toEqual(tk_2); // the items in the array remain the same
+      expect(service.compare(newHand, [tk_1, tk_2])[2]).toEqual(newHand); // the new hand is added to the array
   });
 });
