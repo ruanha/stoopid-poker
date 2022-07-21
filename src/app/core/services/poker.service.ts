@@ -24,7 +24,25 @@ export class PokerService {
         maxRank = rank[0];
       }
     }
-    return hands.filter(hand => this.handRank.rank(hand)[0] === maxRank);
+
+    const hands_with_max_rank = hands.filter(hand => this.handRank.rank(hand)[0] === maxRank);
+
+    let winners: Hand[] = [];
+    for (let hand of hands_with_max_rank) {
+      if (winners.length === 0) {
+        winners.push(hand);
+      }
+      else {
+        winners = this.max(hand, winners);
+      }
+    }
+    return winners;
+  }
+
+  max(hand: Hand, winners: Hand[]) {
+    if (hand > winners[0]) return [hand];
+    if (hand < winners[0]) return winners;
+    return [hand, ...winners];
   }
 
 }
