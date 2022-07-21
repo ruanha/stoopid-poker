@@ -17,7 +17,7 @@ describe('TwoPairService', () => {
 
   it('should return undefined if there is not two pairs', () => {
     for (let hand in hands) {
-      if (hand !== 'two_pair') {
+      if (hand !== 'two_pairs') {
         expect(service.twoPair(hands[hand])).toBeFalsy();
       }
     }

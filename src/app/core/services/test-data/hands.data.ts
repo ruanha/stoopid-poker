@@ -73,7 +73,7 @@ const testData = {
     flush: f,
     straight: s,
     three_of_a_kind: tk,
-    two_pair: tp,
+    two_pairs: tp,
     one_pair: op,
     high_card: hc
 } as { [key: string]: Hand };
