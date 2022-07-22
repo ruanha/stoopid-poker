@@ -16,36 +16,18 @@ describe('StraightService', () => {
   });
 
   it('should return true if the cards are a straight', () => {
-    const cards = [
-      { rank: 2, suit: Suit.Clubs },
-      { rank: 3, suit: Suit.Clubs },
-      { rank: 4, suit: Suit.Clubs },
-      { rank: 5, suit: Suit.Clubs },
-      { rank: 6, suit: Suit.Clubs },
-    ];
-    expect(service.isStraight(cards)).toBeTruthy();
+    const ranks = [6, 5, 4, 3, 2];
+    expect(service.isStraight(ranks)).toBeTruthy();
+  });
+
+  it('should return true if it is a straight with a low ace', () => {
+    const ranks = [5, 4, 3, 2, 1];
+    expect(service.isStraight(ranks)).toBeTruthy();
   });
 
   it('should return false if the cards are not a straight', () => {
-    const cards = [
-      { rank: 2, suit: Suit.Clubs },
-      { rank: 3, suit: Suit.Clubs },
-      { rank: 4, suit: Suit.Clubs },
-      { rank: 5, suit: Suit.Clubs },
-      { rank: 7, suit: Suit.Clubs },
-    ];
-    expect(service.isStraight(cards)).toBeFalsy();
-  });
-
-  it('should return straight when suits are different', () => {
-    const cards = [
-      { rank: 9, suit: Suit.Hearts },
-      { rank: 10, suit: Suit.Clubs },
-      { rank: 11, suit: Suit.Spades },
-      { rank: 12, suit: Suit.Diamonds },
-      { rank: 13, suit: Suit.Clubs },
-    ];
-    expect(service.isStraight(cards)).toBeTruthy();
+    const ranks = [7, 5, 4, 3, 2];
+    expect(service.isStraight(ranks)).toBeFalsy();
   });
 
 });

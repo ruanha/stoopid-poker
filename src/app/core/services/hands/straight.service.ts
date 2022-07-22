@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Card } from '../../models/card.model';
+import { Rank } from '../../models/rank.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,8 @@ export class StraightService {
 
   constructor() { }
 
-  isStraight(cards: Card[]): boolean {
-    const ranks = cards.map(card => card.rank);
-    return ranks.every((rank, index) => {
-      if (index === 0) {
-        return true;
-      }
-      return rank === ranks[index - 1] + 1;
-    });
+  isStraight(ranks: Rank[]): boolean {
+    const s = new Set(ranks);
+    return s.size === 5 && ranks[0] - ranks[4] === 4;
   }
 }
