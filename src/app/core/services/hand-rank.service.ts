@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Card } from 'src/app/core/models/card.model';
-import { FlushService } from './flush.service';
-import { KindService } from './kind.service';
-import { StraightService } from './straight.service';
+import { FlushService } from './hands/flush.service';
+import { KindService } from './hands/kind.service';
+import { StraightService } from './hands/straight.service';
 import { Score } from '../models/score.enum';
-import { TwoPairService } from './two-pair.service';
+import { TwoPairService } from './hands/two-pair.service';
 
 @Injectable({
   providedIn: 'root'

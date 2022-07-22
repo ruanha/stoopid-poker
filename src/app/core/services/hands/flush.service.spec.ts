@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import Hand from '../models/hand.model';
+import Hand from '../../models/hand.model';
 
 import { FlushService } from './flush.service';
-import hands from './test-data/hands.data'
+import hands from './../test-data/hands.data'
 
 describe('FlushService', () => {
   let service: FlushService;

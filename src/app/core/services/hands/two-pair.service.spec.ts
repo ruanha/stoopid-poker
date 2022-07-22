@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { TwoPairService } from './two-pair.service';
-import hands from './test-data/hands.data';
+import hands from './../test-data/hands.data';
 
 describe('TwoPairService', () => {
   let service: TwoPairService;
