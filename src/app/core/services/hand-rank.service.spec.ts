@@ -35,6 +35,10 @@ describe('HandRankService', () => {
     expect(service.rank(hands['straight'])).toEqual([4, 6]);
   });
 
+  it('should return correct value for a straight with ace as lowest card', () => {
+    expect(service.rank(hands['straight_low'])).toEqual([4, 5]);
+  });
+
   it('should return correct value for three of a kind', () => {
     expect(service.rank(hands['three_of_a_kind'])).toEqual([3, 3, [6, 3, 3, 3, 2]]);
   });
