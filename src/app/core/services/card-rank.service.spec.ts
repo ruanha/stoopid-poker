@@ -23,7 +23,7 @@ describe('CardRankService', () => {
       { rank: 5, suit: Suit.Clubs },
       { rank: 6, suit: Suit.Clubs },
       ];
-      expect(service.cardRanks(cards)).toEqual([6, 5, 4, 3, 2]);
+      expect(service.rank(cards)).toEqual([6, 5, 4, 3, 2]);
   });
 
   it('should return the list with ace as low, sorted high to low, when the cards are a straight with a low ace', () => {
@@ -34,6 +34,6 @@ describe('CardRankService', () => {
       { rank: 5, suit: Suit.Clubs },
       { rank: 14, suit: Suit.Clubs },
       ];
-      expect(service.cardRanks(cards)).toEqual([5, 4, 3, 2, 1]);
+      expect(service.rank(cards)).toEqual([5, 4, 3, 2, 1]);
   });
 });

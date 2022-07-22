@@ -6,6 +6,7 @@ import { KindService } from './hands/kind.service';
 import { StraightService } from './hands/straight.service';
 import { Score } from '../models/score.enum';
 import { TwoPairService } from './hands/two-pair.service';
+import { CardRankService } from './card-rank.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,15 @@ export class HandRankService {
     public straight: StraightService,
     public flush: FlushService,
     public kind: KindService,
-    public twoPair: TwoPairService
+    public twoPair: TwoPairService,
+    public cardRank: CardRankService
   ) { }
 
   rank(hand: Card[]) {
-    const ranks = hand.map(card => card.rank);
+    const ranks = this.cardRank.rank(hand);
     
     // straigth flush
-    if (this.straight.isStraight(hand) && this.flush.isFlush(hand)) {
+    if (this.straight.isStraight(ranks) && this.flush.isFlush(hand)) {
       return [Score.straightFlush, Math.max(...ranks)]
     }
 
@@ -39,11 +41,11 @@ export class HandRankService {
 
     // flush
     if (this.flush.isFlush(hand)) {
-      return [Score.flush, this.sortDesc(ranks)]
+      return [Score.flush, ranks];
     }
 
     // straight
-    if (this.straight.isStraight(hand)) {
+    if (this.straight.isStraight(ranks)) {
       return [Score.straight, Math.max(...ranks)]
     }
 

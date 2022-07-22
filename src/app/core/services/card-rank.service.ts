@@ -8,7 +8,7 @@ export class CardRankService {
 
   constructor() { }
 
-  cardRanks = (hand: Card[]) => {
+  rank = (hand: Card[]) => {
     const ranks = hand.map(card => card.rank);
     ranks.sort((a, b) => b - a);
     return ranks.toString() === '14,5,4,3,2' ? [5, 4, 3, 2, 1] : ranks;
