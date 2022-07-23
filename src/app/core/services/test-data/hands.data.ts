@@ -1,75 +1,76 @@
 import Hand from "../../models/hand.model";
+import { Rank } from "../../models/rank.enum";
 import { Suit } from "../../models/suit.enum";
 
 let sf = [
-    { rank: 2, suit: Suit.Clubs },
-    { rank: 3, suit: Suit.Clubs },
-    { rank: 4, suit: Suit.Clubs },
-    { rank: 5, suit: Suit.Clubs },
-    { rank: 6, suit: Suit.Clubs },
+    { rank: Rank.Two, suit: Suit.Clubs },
+    { rank: Rank.Three, suit: Suit.Clubs },
+    { rank: Rank.Four, suit: Suit.Clubs },
+    { rank: Rank.Five, suit: Suit.Clubs },
+    { rank: Rank.Six, suit: Suit.Clubs },
   ]; // straight flush
 let fk = [
-    { rank: 2, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Diamonds },
-    { rank: 4, suit: Suit.Spades },
-    { rank: 4, suit: Suit.Clubs },
-    { rank: 4, suit: Suit.Clubs },
+    { rank: Rank.Two, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Diamonds },
+    { rank: Rank.Four, suit: Suit.Spades },
+    { rank: Rank.Four, suit: Suit.Clubs },
+    { rank: Rank.Four, suit: Suit.Clubs },
 ] // four of a kind
 const fh = [
-    { rank: 2, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Diamonds },
-    { rank: 4, suit: Suit.Spades },
-    { rank: 4, suit: Suit.Clubs },
-    { rank: 2, suit: Suit.Clubs },
+    { rank: Rank.Two, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Diamonds },
+    { rank: Rank.Four, suit: Suit.Spades },
+    { rank: Rank.Four, suit: Suit.Clubs },
+    { rank: Rank.Two, suit: Suit.Clubs },
 ]; // full house
 const f = [
-    { rank: 2, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 7, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Hearts },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Seven, suit: Suit.Hearts },
 ]; // flush
 const s = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 5, suit: Suit.Hearts },
-    { rank: 6, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Five, suit: Suit.Hearts },
+    { rank: Rank.Six, suit: Suit.Hearts },
 ]; // straight
 const sl = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 5, suit: Suit.Hearts },
-    { rank: 14, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Five, suit: Suit.Hearts },
+    { rank: Rank.Ace, suit: Suit.Hearts },
 ]; // straight ace low
 const tk = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 6, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Six, suit: Suit.Hearts },
 ] // three of a kind
 const tp = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 2, suit: Suit.Hearts },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 7, suit: Suit.Hearts },
-    { rank: 7, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Two, suit: Suit.Hearts },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Seven, suit: Suit.Hearts },
+    { rank: Rank.Seven, suit: Suit.Hearts },
 ] // two pair
 const op = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 5, suit: Suit.Hearts },
-    { rank: 5, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Five, suit: Suit.Hearts },
+    { rank: Rank.Five, suit: Suit.Hearts },
 ] // one pair
 const hc = [
-    { rank: 2, suit: Suit.Diamonds },
-    { rank: 3, suit: Suit.Hearts },
-    { rank: 4, suit: Suit.Hearts },
-    { rank: 5, suit: Suit.Hearts },
-    { rank: 7, suit: Suit.Hearts },
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Five, suit: Suit.Hearts },
+    { rank: Rank.Seven, suit: Suit.Hearts },
 ] // highest card
 
 
