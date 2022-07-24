@@ -20,6 +20,9 @@ export class DealService {
   }
 
   deal(numHands: number, cards=5, deck=this.deck) {
+    if (numHands * cards > deck.length)
+      throw new Error('Cannot deal more cards than are in the deck');
+      
     const hands = [];
     for (let i = 0; i < numHands; i++) {
       hands.push(deck.splice(0, cards));
