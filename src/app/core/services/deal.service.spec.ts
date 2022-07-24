@@ -36,4 +36,18 @@ describe('DealService', () => {
     expect(service.deal(0, 2)).toEqual([]);
   });
 
+  it('should return an array of randomly shuffled cards, each time it\'s called', () => {
+    const cards_1 = service.deal(1, 52)[0];
+    const cards_2 = service.deal(1, 52)[0];
+
+    let sameOrder = true;
+    for (let i = 0; i < cards_1.length; i++) {
+      if (cards_1[i].rank !== cards_2[i].rank || cards_1[i].suit !== cards_2[i].suit) {
+        sameOrder = false;
+        break;
+      }
+    }
+    expect(sameOrder).toBe(false); // Of course this cannot truly be guaranteed, but odds of it happening are astronomically low.
+  });
+
 });
