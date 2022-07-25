@@ -1,0 +1,27 @@
+.container {
+    width: 150px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 10px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle {
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.suite-icon {
+    font-size: 50px;
+    color: red;
+}
+
+.last-col {
+    transform: rotate(180deg);
+}
