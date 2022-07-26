@@ -11,10 +11,24 @@
     justify-content: space-between;
 }
 
-.middle {
-    flex-grow: 1;
+.column {
     flex-direction: column;
+}
+
+.middle-container {
+    flex-grow: 1;
     margin: 0 10px;
+}
+
+.icon-columns {
+    height: 200px;
+    line-height: 0;
+}
+
+.icon-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .suite-icon {
