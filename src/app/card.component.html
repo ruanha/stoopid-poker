@@ -9,15 +9,27 @@
         <div class="flex-container icon-columns">
 
             <div class="icon-column">
-                <div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div>
+                <div 
+                    *ngFor="let i of [].constructor(col1)"
+                    class="suit-icon"
+                    >{{suitMap[suit]}}
+                </div>
             </div>
             
             <div class="icon-column">
-                <div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div>
+                <div 
+                    *ngFor="let i of [].constructor(col2)"
+                    class="suit-icon"
+                    >{{suitMap[suit]}}
+                </div>
             </div>
     
             <div class="icon-column">
-                <div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div><div class="suite-icon">{{suitMap[suit]}}</div>
+                <div 
+                    *ngFor="let i of [].constructor(col3)"
+                    class="suit-icon"
+                    >{{suitMap[suit]}}
+                </div>
             </div>
 
         </div>

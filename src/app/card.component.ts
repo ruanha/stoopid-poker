@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 /**
@@ -9,16 +10,20 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   standalone: true,
+  imports: [CommonModule],
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
 
-  @Input() rank: number = 9;
+  @Input() rank: number = 2;
   @Input() suit : string = 'hearts';
 
   suitColor = this.suit === 'spades' || this.suit === 'clubs' ? 'black' : 'red';
+  col1 = 0;
+  col2 = 0;
+  col3 = 0;
 
   suitMap: {[key: string]: string} = {
     clubs: '♣',
@@ -30,6 +35,9 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.col1 = 4;
+    this.col2 = 1;
+    this.col3 = 4;
   }
 
 }
