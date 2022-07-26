@@ -17,7 +17,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() rank: number = 2;
+  @Input() rank!: number;
   @Input() suit : string = 'hearts';
 
   suitColor = this.suit === 'spades' || this.suit === 'clubs' ? 'black' : 'red';
@@ -35,9 +35,20 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.col1 = 4;
-    this.col2 = 1;
-    this.col3 = 4;
+    if (this.rank < 4) {
+      this.col2 = this.rank;
+    }
+    if ((this.rank > 3 && this.rank < 8) || this.rank === 9) {
+      this.col2 = this.rank % 2;
+      this.col1 = this.col3 = (this.rank - this.col2) / 2;
+    }
+    if (this.rank === 8) {
+      this.col1 = this.col3 = 3;
+      this.col2 = 2;
+    }
+    if (this.rank === 10) {
+      this.col1 = this.col3 = 4;
+      this.col2 = 2;
+    }
   }
-
 }
