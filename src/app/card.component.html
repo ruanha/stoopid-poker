@@ -6,7 +6,7 @@
     </div>
 
     <div class="middle-container">
-        <div class="flex-container icon-columns">
+        <div *ngIf="rank < 10" class="flex-container icon-columns">
 
             <div class="icon-column">
                 <div 
@@ -32,6 +32,10 @@
                 </div>
             </div>
 
+        </div>
+
+        <div *ngIf="rank > 10" class="flex-container face-card">
+            <div class="">{{rank}}</div>
         </div>
 
 

@@ -35,6 +35,13 @@
     font-size: 50px;
 }
 
+.face-card {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
 .last-col {
     transform: rotate(180deg);
 }
