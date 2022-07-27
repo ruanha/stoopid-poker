@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RankDisplayService } from './core/services/rank-display.service';
 
@@ -10,7 +9,6 @@ import { RankDisplayService } from './core/services/rank-display.service';
  */
 
 @Component({
-  imports: [CommonModule],
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
