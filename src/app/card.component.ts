@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { Suit } from './core/models/suit.enum';
 import { RankDisplayService } from './core/services/rank-display.service';
 
 /**
@@ -19,7 +20,7 @@ import { RankDisplayService } from './core/services/rank-display.service';
 export class CardComponent implements OnInit {
 
   @Input() rank!: number | string;
-  @Input() suit : string = 'hearts';
+  @Input() suit! : string;
 
   suitColor = this.suit === 'spades' || this.suit === 'clubs' ? 'black' : 'red';
   col1 = 0;
@@ -37,8 +38,10 @@ export class CardComponent implements OnInit {
     public rankDisplayService: RankDisplayService) { }
 
   ngOnInit(): void {
+    console.log(this.rank, this.suit)
     if (typeof this.rank === 'number') {
       [this.col1, this.col2, this.col3] = this.rankDisplayService.getRankDisplay(this.rank);
     }
+    console.log(this.col1, this.col2, this.col3)
   }
 }

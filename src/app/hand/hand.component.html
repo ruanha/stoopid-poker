@@ -1,1 +1,8 @@
-<p>hand works!</p>
+<div class="flex-container">
+    <div *ngFor="let card of hand">
+        <app-card 
+            [rank]="rankToCharService.transformRank(card.rank)"
+            [suit]="suitToStringService.getSuitName(card.suit)">
+        </app-card>
+    </div>
+</div>

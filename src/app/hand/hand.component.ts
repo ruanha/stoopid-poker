@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Card } from '../core/models/card.model';
+import { RankToCharService } from '../core/services/rank-to-char.service';
+import { SuitToStringService } from '../core/services/suit-to-string.service';
 
 @Component({
   selector: 'app-hand',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HandComponent implements OnInit {
 
-  constructor() { }
+  @Input() hand!: Card[];
+
+  constructor(
+    public suitToStringService: SuitToStringService,
+    public rankToCharService: RankToCharService) { }
+
 
   ngOnInit(): void {
   }
