@@ -9,10 +9,10 @@ import { HandComponent } from './hand/hand.component';
   declarations: [
     AppComponent,
     HandComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
-    CardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

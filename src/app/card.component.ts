@@ -10,7 +10,6 @@ import { RankDisplayService } from './core/services/rank-display.service';
  */
 
 @Component({
-  standalone: true,
   imports: [CommonModule],
   selector: 'app-card',
   templateUrl: './card.component.html',
