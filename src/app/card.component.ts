@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RankDisplayService } from './core/services/rank-display.service';
+import { RankDisplayService } from './core/services/display/rank-display.service';
 
 /**
  * Card component

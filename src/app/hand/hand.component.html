@@ -2,7 +2,9 @@
     <div 
         *ngFor="let card of hand; index as i" 
         class="card-container"
-        [ngStyle]="{'transform': 'translateX(' + getTranslation(i) + 'px) rotate(' + getRotation(i) + 'deg)'}">
+        [ngStyle]="{'transform': 
+            'translateX(' + cardTrigonometryService.getTranslation(i, hand.length) + 'px)' + 
+            'rotate(' + cardTrigonometryService.getRotation(i, hand.length) + 'deg)'}">
         <app-card 
         [rank]="rankToCharService.transformRank(card.rank)"
         [suit]="suitToStringService.getSuitName(card.suit)">

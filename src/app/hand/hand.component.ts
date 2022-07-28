@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Card } from '../core/models/card.model';
+import { CardTrigonometryService } from '../core/services/display/card-trigonometry.service';
 import { RankToCharService } from '../core/services/rank-to-char.service';
 import { SuitToStringService } from '../core/services/suit-to-string.service';
 
@@ -14,25 +15,11 @@ export class HandComponent implements OnInit {
 
   constructor(
     public suitToStringService: SuitToStringService,
-    public rankToCharService: RankToCharService) { }
+    public rankToCharService: RankToCharService,
+    public cardTrigonometryService: CardTrigonometryService) { }
 
 
   ngOnInit(): void {
-  }
-
-  getRotation(index: number): number {
-    const relativePosition = index - Math.floor(this.hand.length / 2);
-    
-    if (relativePosition === 0) {
-      return 0;
-    }
-    const theta = Math.atan( 111 / (172 - 150))
-    return (180 - 90 - (theta * 180 / Math.PI)) * relativePosition;
-  }
-
-  getTranslation(index: number) {
-    const relativePosition = index - Math.floor(this.hand.length / 2);
-    return relativePosition * (-150);
   }
 
 }
