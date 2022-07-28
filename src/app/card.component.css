@@ -1,9 +1,9 @@
 .container {
-    width: 150px;
-    height: 200px;
-    border: 1px solid black;
+    width: 150px; /* if changed the hardcoded values in card-trigonomtery.service must be revisited */
+    height: 200px; /* if changed the hardcoded values in card-trigonomtery.service must be revisited */
+    border: 1px solid black; /* if the width is changed the hardcoded values in card-trigonomtery.service must be revisited */
     border-radius: 5%;
-    padding: 10px;
+    padding: 10px; /* if changed the hardcoded values in card-trigonomtery.service must be revisited */
 }
 
 .flex-container {
