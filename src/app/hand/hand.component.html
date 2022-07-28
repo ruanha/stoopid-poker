@@ -1,8 +1,11 @@
-<div class="flex-container">
-    <div *ngFor="let card of hand">
+<div class="container">
+    <div 
+        *ngFor="let card of hand; index as i" 
+        class="card-container"
+        [ngStyle]="{'transform': 'translateX(' + getTranslation(i) + 'px) rotate(' + getRotation(i) + 'deg)'}">
         <app-card 
-            [rank]="rankToCharService.transformRank(card.rank)"
-            [suit]="suitToStringService.getSuitName(card.suit)">
-        </app-card>
-    </div>
+        [rank]="rankToCharService.transformRank(card.rank)"
+        [suit]="suitToStringService.getSuitName(card.suit)">
+    </app-card>
+</div>
 </div>

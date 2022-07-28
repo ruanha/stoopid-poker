@@ -20,4 +20,19 @@ export class HandComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getRotation(index: number): number {
+    const relativePosition = index - Math.floor(this.hand.length / 2);
+    
+    if (relativePosition === 0) {
+      return 0;
+    }
+    const theta = Math.atan( 111 / (172 - 150))
+    return (180 - 90 - (theta * 180 / Math.PI)) * relativePosition;
+  }
+
+  getTranslation(index: number) {
+    const relativePosition = index - Math.floor(this.hand.length / 2);
+    return relativePosition * (-150);
+  }
+
 }

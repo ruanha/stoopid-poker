@@ -1,5 +1,7 @@
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.container {
+    text-align: center;
+}
+.card-container {
+    display: inline-block;
+    background: white;
 }
