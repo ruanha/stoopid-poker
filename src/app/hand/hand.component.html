@@ -6,6 +6,7 @@
             'translateX(' + cardTrigonometryService.getTranslation(i, hand.length) + 'px)' + 
             'rotate(' + cardTrigonometryService.getRotation(i, hand.length) + 'deg)'}">
         <app-card 
+        [backside]="backside"
         [rank]="rankToCharService.transformRank(card.rank)"
         [suit]="suitToStringService.getSuitName(card.suit)">
     </app-card>

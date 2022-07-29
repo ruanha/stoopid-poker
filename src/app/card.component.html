@@ -1,4 +1,4 @@
-<div [style.color]="suitColor" class="flex-container container">
+<div *ngIf="backside === false; else backsideBlock" [style.color]="suitColor" class="flex-container container">
 
     <div>
         <div>{{rank}}</div>
@@ -40,11 +40,17 @@
             </div>
         </ng-template>
 
+        
     </div>
-
+    
+    
     <div class="last-col">
         <div>{{rank}}</div>
         <div>{{suitMap[suit]}}</div>
     </div>
-
+    
 </div>
+
+<ng-template #backsideBlock>
+    <div class="backside container"></div>
+</ng-template>

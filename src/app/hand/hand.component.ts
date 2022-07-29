@@ -12,6 +12,7 @@ import { SuitToStringService } from '../core/services/suit-to-string.service';
 export class HandComponent implements OnInit {
 
   @Input() hand!: Card[];
+  @Input() backside = false;
 
   constructor(
     public suitToStringService: SuitToStringService,

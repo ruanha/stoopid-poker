@@ -17,6 +17,7 @@ export class CardComponent implements OnInit {
 
   @Input() rank!: number | string;
   @Input() suit! : string;
+  @Input() backside = false;
 
   suitColor: string = "";
   col1 = 0;
