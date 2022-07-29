@@ -30,7 +30,7 @@
 
     </div>
 
-    <h2>You <span>{{ namedHandService.name(playerHand) }}</span></h2>
+    <h2>You <span *ngIf="hands.length && !dealt">{{ namedHandService.name(playerHand) }}</span></h2>
     <app-hand [hand]="playerHand"></app-hand>
 </div>
 
