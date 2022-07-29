@@ -17,14 +17,15 @@
             <h3>Bet on:</h3>
             <button [disabled]="!dealt" (click)="action('win')">My hand Wins</button>
             <button [disabled]="!dealt" (click)="action('tie')">Tie</button>
-            <button [disabled]="!dealt" (click)="action('lose')">Opponent hand wins</button>
+            <button [disabled]="!dealt" (click)="action('lose')">House wins</button>
 
         </div>
 
         <div>
             <h3>Score</h3>
-            <h4>Opponent: {{score.opponent}}</h4>
-            <h4>You: {{score.you}}</h4>
+            <div>House: {{score.opponent}}</div>
+            <div>You: {{score.you}}</div>
+            
         </div>
 
     </div>
