@@ -55,8 +55,8 @@ export class HandRankService {
     }
 
     // two pair
-    if (this.twoPair.twoPair(hand)) {
-      return [Score.twoPair, this.twoPair.twoPair(hand)]
+    if (this.twoPair.twoPair(ranks)) {
+      return [Score.twoPair, this.twoPair.twoPair(ranks)]
     }
 
     // One pair

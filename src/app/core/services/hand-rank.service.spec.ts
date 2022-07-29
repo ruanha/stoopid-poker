@@ -44,7 +44,7 @@ describe('HandRankService', () => {
   });
 
   it('should return correct value for two pairs', () => {
-    expect(service.rank(hands['two_pairs'])).toEqual([2, [2, 7]]);
+    expect(service.rank(hands['two_pairs'])).toEqual([2, [7, 2]]);
   });
 
   it('should return correct value for a pair', () => {

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Suit } from '../models/suit.enum';
 
 import { CardRankService } from './card-rank.service';
+import testData from './test-data/hands.data';
 
 describe('CardRankService', () => {
   let service: CardRankService;
@@ -36,4 +37,5 @@ describe('CardRankService', () => {
       ];
       expect(service.rank(cards)).toEqual([5, 4, 3, 2, 1]);
   });
+
 });

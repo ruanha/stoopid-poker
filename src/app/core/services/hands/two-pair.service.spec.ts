@@ -18,13 +18,21 @@ describe('TwoPairService', () => {
   it('should return undefined if there is not two pairs', () => {
     for (let hand in hands) {
       if (hand !== 'two_pairs') {
-        expect(service.twoPair(hands[hand])).toBeFalsy();
+        const ranks = hands[hand].map(card => card.rank);
+        ranks.sort().reverse();
+        expect(service.twoPair(ranks)).toBeFalsy();
       }
     }
   });
 
   it('should return each rank as tuple if there is two pairs', () => {
-    expect(1).toBe(1);
+    for (let hand in hands) {
+      if (hand === 'two_pairs') {
+        const ranks = hands[hand].map(card => card.rank);
+        ranks.sort().reverse();
+        expect(service.twoPair(ranks)).toEqual([7, 2])
+      }
+    }
   });
 
 });
