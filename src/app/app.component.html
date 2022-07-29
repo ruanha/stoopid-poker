@@ -1,1 +1,15 @@
-<app-hand [hand]="hands[0]"></app-hand>
+<div class="header">
+    <button>deal</button>
+</div>
+
+<div class="flex-container">
+    <p>Opponent:</p>
+    <app-hand [hand]="hands[1]" class="opponent"></app-hand>
+
+    <p>Table:</p>
+    <div class="table"></div>
+
+    <p>You:</p>
+    <app-hand [hand]="hands[0]"></app-hand>
+</div>
+
