@@ -1,7 +1,10 @@
 .container {
     text-align: center;
+    position: relative;
 }
 .card-container {
+    position: absolute;
+    left: auto;
     display: inline-block;
     background: white;
 }

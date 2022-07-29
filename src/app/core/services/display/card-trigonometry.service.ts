@@ -22,6 +22,6 @@ export class CardTrigonometryService {
    */
   getTranslation(index: number, len: number) {
     const relativePosition = index - Math.floor(len / 2);
-    return relativePosition * (-150); // hardcoded for now. The cards are ~ 175px wide, this makes them overlap nicely.
+    return relativePosition * (15); // hardcoded for now. The cards are ~ 175px wide, this makes them overlap nicely.
   }
 }
