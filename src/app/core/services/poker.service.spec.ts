@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { Suit } from '../models/suit.enum';
+import hands from './test-data/hands.data';
 
 import { PokerService } from './poker.service';
 
-  const tk_1 = [
-    { rank: 2, suit: Suit.Clubs },
-    { rank: 4, suit: Suit.Clubs },
-    { rank: 6, suit: Suit.Clubs },
-    { rank: 6, suit: Suit.Clubs },
-    { rank: 6, suit: Suit.Clubs },
-  ];
+const tk_1 = [
+  { rank: 2, suit: Suit.Clubs },
+  { rank: 4, suit: Suit.Clubs },
+  { rank: 6, suit: Suit.Clubs },
+  { rank: 6, suit: Suit.Clubs },
+  { rank: 6, suit: Suit.Clubs },
+];
   const tk_2 = [
     { rank: 2, suit: Suit.Clubs },
     { rank: 4, suit: Suit.Clubs },
@@ -17,25 +18,38 @@ import { PokerService } from './poker.service';
     { rank: 6, suit: Suit.Clubs },
     { rank: 6, suit: Suit.Clubs },
   ];
-
-describe('PokerService', () => {
+  
+  describe('PokerService', () => {
   let service: PokerService;
-
+  
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(PokerService);
   });
-
+  
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
+  
   it('should return the list of winners from a list of hands', () => {
     const hands = [tk_1, tk_2];
     expect(service.poker(hands).length).toEqual(2);
     expect(service.poker(hands)[0]).toEqual(tk_1);
     expect(service.poker(hands)[1]).toEqual(tk_2);
   });
+
+  it('should return the hand with highest kicker when both have two pairs', () => {
+    const two_pairs_1 = hands['two_pairs'];
+    const two_pairs_2 = [
+      { rank: 7, suit: Suit.Clubs },
+      { rank: 7, suit: Suit.Clubs },
+      { rank: 2, suit: Suit.Clubs },
+      { rank: 2, suit: Suit.Clubs },
+      { rank: 6, suit: Suit.Clubs },
+      ];
+    
+    expect(service.poker([two_pairs_1, two_pairs_2])).toEqual([two_pairs_2]);
+  })
 });
 
 describe('PokerService helper function "compare', () => {
@@ -85,4 +99,5 @@ describe('PokerService helper function "compare', () => {
       expect(service.compare(newHand, [tk_1, tk_2])[1]).toEqual(tk_2); // the items in the array remain the same
       expect(service.compare(newHand, [tk_1, tk_2])[2]).toEqual(newHand); // the new hand is added to the array
   });
+
 });
