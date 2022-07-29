@@ -3,7 +3,7 @@
 </div>
 
 <div class="flex-container column">
-    <h2>Opponent</h2>
+    <h2>Opponent<span *ngIf="hands.length && !dealt"> {{ namedHandService.name(opponentHand) }}</span></h2>
     <app-hand [hand]="opponentHand" [backside]="dealt" class="opponent"></app-hand>
     
     <div class="table flex-container row">
@@ -30,7 +30,7 @@
 
     </div>
 
-    <h2>You</h2>
+    <h2>You <span>{{ namedHandService.name(playerHand) }}</span></h2>
     <app-hand [hand]="playerHand"></app-hand>
 </div>
 

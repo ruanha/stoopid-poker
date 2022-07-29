@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Card } from './core/models/card.model';
 import { DealService } from './core/services/deal.service';
+import { NamedHandService } from './core/services/named-hand.service';
 import { PokerService } from './core/services/poker.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { PokerService } from './core/services/poker.service';
 export class AppComponent {
   constructor(
     public dealService: DealService,
-    public pokerService: PokerService
+    public pokerService: PokerService,
+    public namedHandService: NamedHandService
   ) {}
+  
   title = 'poker';
   hands: Card[][] = [];
   playerHand: Card[] = [];
