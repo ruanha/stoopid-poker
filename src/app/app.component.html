@@ -1,15 +1,36 @@
 <div class="header">
-    <button>deal</button>
+    <h1>Stoopid Poker!</h1>
 </div>
 
-<div class="flex-container">
-    <p>Opponent:</p>
-    <app-hand [hand]="hands[1]" [backside]="true" class="opponent"></app-hand>
+<div class="flex-container column">
+    <h2>Opponent</h2>
+    <app-hand [hand]="opponentHand" [backside]="true" class="opponent"></app-hand>
+    
+    <h2>Table</h2>
+    <div class="table flex-container row">
 
-    <p>Table:</p>
-    <div class="table"></div>
+        <div>
+            <h3>Actions</h3>
+            <button [disabled]="dealt" (click)="deal()">deal</button>
+        </div>
 
-    <p>You:</p>
-    <app-hand [hand]="hands[0]"></app-hand>
+        <div [ngStyle]="{'text-align': 'center'}">
+            <h3>Bet on:</h3>
+            <button [disabled]="!dealt" (click)="action('win')">My hand Wins</button>
+            <button [disabled]="!dealt" (click)="action('tie')">Tie</button>
+            <button [disabled]="!dealt" (click)="action('lose')">Opponent hand wins</button>
+
+        </div>
+
+        <div>
+            <h3>Score</h3>
+            <h4>Opponent: {{score.opponent}}</h4>
+            <h4>You: {{score.you}}</h4>
+        </div>
+
+    </div>
+
+    <h2>You</h2>
+    <app-hand [hand]="playerHand"></app-hand>
 </div>
 
