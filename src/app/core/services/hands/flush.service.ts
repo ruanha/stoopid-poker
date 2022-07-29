@@ -8,6 +8,8 @@ export class FlushService {
 
   constructor() { }
 
-  isFlush = (cards: Card[]): boolean => 
-    cards.map(card => card.suit).every(suit => suit === cards[0].suit);
+  isFlush = (cards: Card[]): boolean => {
+    if (cards.length < 5 ) return false;
+    return cards.map(card => card.suit).every(suit => suit === cards[0].suit);
+  }
 }

@@ -28,4 +28,8 @@ describe('FlushService', () => {
     }
   });
 
+  it('should return false for an empty list', () => {
+    expect(service.isFlush([])).toBeFalse();
+  });
+
 });
