@@ -15,7 +15,7 @@ export class AppComponent {
     public pokerService: PokerService,
     public namedHandService: NamedHandService
   ) {}
-  
+
   title = 'poker';
   hands: Card[][] = [];
   playerHand: Card[] = [];
@@ -30,6 +30,7 @@ export class AppComponent {
     this.playerHand = this.hands[0];
     this.opponentHand = this.hands[1];
     this.dealt = true;
+    this.bet = '';
   }
 
   action(action: string): void {

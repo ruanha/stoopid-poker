@@ -22,30 +22,15 @@
         </div>
     </div>
     
-    <div class="table flex-container row">
-        
-        <div>
-            <h3>Actions</h3>
-            <button [disabled]="dealt" (click)="deal()">deal</button>
-        </div>
-
-        <div [ngStyle]="{'text-align': 'center'}">
-            <h3>Bet on:</h3>
-            <button [disabled]="!dealt" (click)="action('win')">My hand Wins</button>
-            <button [disabled]="!dealt" (click)="action('tie')">Tie</button>
-            <button [disabled]="!dealt" (click)="action('lose')">House wins</button>
-
-        </div>
-
-    </div>
+    <button [disabled]="dealt" (click)="deal()">deal</button>
 
     <h2>You <span *ngIf="hands.length && !dealt">{{ namedHandService.name(playerHand) }}</span></h2>
     <div class="flex-container space-between">
         <app-hand [hand]="playerHand"></app-hand>
         <div>
-            <app-token (click)="dealt ? action('lose') : 0" [side]="dealt ? 'front' : 'backside'">{{dealt ? 'House' : ''}}</app-token>
-            <app-token [side]="dealt ? 'front' : 'backside'">{{ dealt ? 'Tie' : ''}}</app-token>
-            <app-token [side]="dealt ? 'front' : 'backside'">{{dealt? 'Player' : ''}}</app-token>
+            <app-token (click)="dealt ? action('lose') : 0" [side]="dealt || bet === 'lose' ? 'front' : 'backside'">{{ dealt || bet === 'lose' ? 'House' : '' }}</app-token>
+            <app-token (click)="dealt ? action('tie') : 0" [side]="dealt || bet === 'tie' ? 'front' : 'backside'">{{ dealt || bet === 'tie' ? 'Tie' : '' }}</app-token>
+            <app-token (click)="dealt ? action('win') : 0" [side]="dealt || bet === 'win' ? 'front' : 'backside'">{{ dealt || bet === 'win' ? 'Player' : '' }}</app-token>
         </div>
     </div>
 </div>
