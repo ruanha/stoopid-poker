@@ -26,10 +26,21 @@ export class PokerService {
 
   compare(hand: Hand, winners: Hand[]) {
     const rank = this.handRank.rank(hand);
+    const flatRank = rank.flat();
     const currentWinnerRank = this.handRank.rank(winners[0]);
-    if (rank > currentWinnerRank) return [hand];
-    if (rank < currentWinnerRank) return winners;
+    const flatWinner = currentWinnerRank.flat();
+
+    if (this.arrayGreaterThan(flatRank as number[], flatWinner as number[])) return [hand];
+    if (this.arrayGreaterThan(flatWinner as number[], flatRank as number[])) return winners;
     return [hand, ...winners];
+  }
+
+  arrayGreaterThan(arr1: number[], arr2: number[]) {
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] > arr2[i]) return true;
+      if (arr1[i] < arr2[i]) return false;
+    }
+    return false;
   }
 
 }

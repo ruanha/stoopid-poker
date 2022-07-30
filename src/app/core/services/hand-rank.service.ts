@@ -61,7 +61,7 @@ export class HandRankService {
 
     // One pair
     if (this.kind.kind(2, ranks)) {
-      return [Score.onePair, this.kind.kind(2, ranks), this.sortDesc(ranks)]
+      return [Score.onePair, this.kind.kind(2, ranks), ranks]
     }
 
     // highest card

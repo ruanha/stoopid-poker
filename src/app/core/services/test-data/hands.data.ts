@@ -65,6 +65,13 @@ const op = [
     { rank: Rank.Five, suit: Suit.Hearts },
     { rank: Rank.Five, suit: Suit.Hearts },
 ] // one pair
+const op_highest = [
+    { rank: Rank.Two, suit: Suit.Diamonds },
+    { rank: Rank.Three, suit: Suit.Hearts },
+    { rank: Rank.Four, suit: Suit.Hearts },
+    { rank: Rank.Queen, suit: Suit.Hearts },
+    { rank: Rank.Queen, suit: Suit.Hearts },
+] // one pair highest rank
 const hc = [
     { rank: Rank.Two, suit: Suit.Diamonds },
     { rank: Rank.Three, suit: Suit.Hearts },
@@ -84,6 +91,7 @@ const testData = {
     three_of_a_kind: tk,
     two_pairs: tp,
     one_pair: op,
+    one_pair_highest: op_highest,
     high_card: hc
 } as { [key: string]: Hand };
 export default testData;

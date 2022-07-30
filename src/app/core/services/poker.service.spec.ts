@@ -49,7 +49,11 @@ const tk_1 = [
       ];
     
     expect(service.poker([two_pairs_1, two_pairs_2])).toEqual([two_pairs_2]);
-  })
+  });
+
+  it('should return the hand with the highest rank of pair, when compairing hands of one pair', () => {
+    expect(service.poker([hands['one_pair'], hands['one_pair_highest']])).toEqual([hands['one_pair_highest']]);
+  });
 });
 
 describe('PokerService helper function "compare', () => {
