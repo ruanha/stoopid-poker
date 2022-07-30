@@ -4,7 +4,7 @@
 }
 .card-container {
     position: absolute;
-    left: calc(50% - (172px / 2));
+    left: calc(172px / 2);
     display: inline-block;
     background: white;
 }
