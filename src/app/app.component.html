@@ -1,5 +1,12 @@
-<div class="header">
-    <h1>Stoopid Poker!</h1>
+<div class="flex-container header space-between">
+
+    <div><h1>Stoopid Poker!</h1></div>
+
+    <div class="scores">
+        <div>House: {{score.opponent}}</div>
+        <div>You: {{score.you}}</div>
+    </div>
+
 </div>
 
 <div class="flex-container column">
@@ -19,13 +26,6 @@
             <button [disabled]="!dealt" (click)="action('tie')">Tie</button>
             <button [disabled]="!dealt" (click)="action('lose')">House wins</button>
 
-        </div>
-
-        <div>
-            <h3>Score</h3>
-            <div>House: {{score.opponent}}</div>
-            <div>You: {{score.you}}</div>
-            
         </div>
 
     </div>
