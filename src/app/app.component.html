@@ -12,7 +12,11 @@
 
 <div class="flex-container column">
 
-    <h2>Opponent<span *ngIf="hands.length && !dealt"> {{ namedHandService.name(opponentHand) }}</span></h2>
+    <h2 
+        [style.color]="winner === 'house' ? 'green' : 'black'">House
+        <span *ngIf="winner === 'house'"> wins with:</span>
+        <span *ngIf="hands.length && !dealt"> {{ namedHandService.name(opponentHand) }}</span>
+    </h2>
     <div class="flex-container space-between">
         <app-hand [hand]="opponentHand" [backside]="dealt" class="opponent"></app-hand>
         <div class="house-tokens">
@@ -24,13 +28,19 @@
     
     <button [disabled]="dealt" (click)="deal()">deal</button>
 
-    <h2>You <span *ngIf="hands.length && !dealt">{{ namedHandService.name(playerHand) }}</span></h2>
+    <h2 
+        [style.color]="winner === 'player' ? 'green' : 'black'">You
+        <span *ngIf="winner"> bet on {{bet}} and</span>
+        <span *ngIf="winner === 'house'"> lost with:</span>
+        <span *ngIf="winner === 'player'"> win with:</span>
+        <span *ngIf="hands.length && !dealt"> {{ namedHandService.name(playerHand) }}</span>
+    </h2>
     <div class="flex-container space-between">
         <app-hand [hand]="playerHand"></app-hand>
         <div>
-            <app-token (click)="dealt ? action('lose') : 0" [side]="dealt || bet === 'lose' ? 'front' : 'backside'">{{ dealt || bet === 'lose' ? 'House' : '' }}</app-token>
+            <app-token (click)="dealt ? action('house') : 0" [side]="dealt || bet === 'house' ? 'front' : 'backside'">{{ dealt || bet === 'house' ? 'House' : '' }}</app-token>
             <app-token (click)="dealt ? action('tie') : 0" [side]="dealt || bet === 'tie' ? 'front' : 'backside'">{{ dealt || bet === 'tie' ? 'Tie' : '' }}</app-token>
-            <app-token (click)="dealt ? action('win') : 0" [side]="dealt || bet === 'win' ? 'front' : 'backside'">{{ dealt || bet === 'win' ? 'Player' : '' }}</app-token>
+            <app-token (click)="dealt ? action('player') : 0" [side]="dealt || bet === 'player' ? 'front' : 'backside'">{{ dealt || bet === 'player' ? 'Player' : '' }}</app-token>
         </div>
     </div>
 </div>

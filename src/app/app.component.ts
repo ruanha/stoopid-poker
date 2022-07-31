@@ -24,6 +24,7 @@ export class AppComponent {
   bet: string = '';
   result: string = '';
   score = {you: 0, opponent: 0};
+  winner = '';
 
   deal() {
     this.hands = this.dealService.deal(2, 5);
@@ -31,6 +32,7 @@ export class AppComponent {
     this.opponentHand = this.hands[1];
     this.dealt = true;
     this.bet = '';
+    this.winner= '';
   }
 
   action(action: string): void {
@@ -41,15 +43,17 @@ export class AppComponent {
       this.result = 'tie';
     }
     if (winners[0] === this.playerHand) {
-      this.result = 'win';
+      this.result = 'player';
     }
     if (winners[0] === this.opponentHand) {
-      this.result = 'lose';
+      this.result = 'house';
     }
     if (this.result === this.bet) {
       this.score.you += 1;
+      this.winner = 'player';
     } else {
       this.score.opponent += 1;
+      this.winner = 'house';
     }
     this.dealt = false;
   }
