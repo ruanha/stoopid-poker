@@ -6,5 +6,6 @@ html body {
 
 app-root {
     max-width: 700px;
+    min-width: 350px;
     width: 50vw;
 }
