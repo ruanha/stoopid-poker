@@ -6,6 +6,8 @@
     min-width: 40px;
     max-height: 80px;
     min-height: 40px;
+    margin: 1px;
+    cursor: pointer;
 }
 
 .token-backside {
