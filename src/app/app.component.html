@@ -14,6 +14,7 @@
 
     <h2 
         [style.color]="winner === 'house' ? 'green' : 'black'">House
+        <span *ngIf="winner === 'player'"> had:</span>
         <span *ngIf="winner === 'house'"> wins with:</span>
         <span *ngIf="hands.length && !dealt"> {{ namedHandService.name(opponentHand) }}</span>
     </h2>
