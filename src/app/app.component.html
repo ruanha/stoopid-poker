@@ -3,8 +3,8 @@
     <div><h1>Stoopid Poker!</h1></div>
 
     <div class="scores">
-        <div>House: {{score.opponent}}</div>
-        <div>You: {{score.you}}</div>
+        <div [class.score-animate]="winner === 'house'">House: {{score.opponent}}</div>
+        <div [class.score-animate]="winner === 'player'" >You: {{score.you}}</div>
     </div>
 
 </div>

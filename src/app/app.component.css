@@ -23,8 +23,20 @@ h1 {
     justify-content: space-between;
 }
 
+
 .scores {
     align-self: center;
+}
+
+@keyframes animate-score {
+    0% {font-size: 16px;}
+    50% {font-size: 25px; color: green;}
+    100% {font-size: 16px;}
+}
+
+.score-animate {    
+    animation-name: animate-score;
+    animation-duration: 2s;
 }
 
 .opponent {
