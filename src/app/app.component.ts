@@ -28,7 +28,7 @@ export class AppComponent {
 
   deal() {
     this.hands = this.dealService.deal(2, 5);
-    this.playerHand = this.hands[0];
+    this.playerHand = this.hands[0].sort((a, b) => b.rank - a.rank);
     this.opponentHand = this.hands[1];
     this.dealt = true;
     this.bet = '';
