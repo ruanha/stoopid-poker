@@ -8,3 +8,18 @@
     display: inline-block;
     background: white;
 }
+
+.hand-name-overlay {
+    position: absolute;
+    top: 75px;
+    display: inline-block;
+    background: white;
+    opacity: 0.85;
+    
+    z-index: 1;
+    font-size: 1.5em;
+    width: 60vw;
+    max-width: 500px;
+    padding: 10px 0;
+    text-align: start;
+}

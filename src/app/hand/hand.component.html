@@ -1,4 +1,7 @@
 <div class="container">
+    <div *ngIf="showHandName" class="hand-name-overlay">
+        {{ namedHandService.name(hand) }}
+    </div>
     <div 
         *ngFor="let card of hand; index as i" 
         class="card-container"

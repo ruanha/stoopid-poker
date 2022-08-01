@@ -14,12 +14,10 @@
 
     <h2 
         [style.color]="winner === 'house' ? 'green' : 'black'">House
-        <span *ngIf="winner === 'player'"> had:</span>
-        <span *ngIf="winner === 'house'"> wins with:</span>
-        <span *ngIf="hands.length && !dealt"> {{ namedHandService.name(opponentHand) }}</span>
+        <span *ngIf="winner === 'house'"> wins!</span>
     </h2>
     <div class="flex-container space-between">
-        <app-hand [hand]="opponentHand" [backside]="dealt" class="opponent"></app-hand>
+        <app-hand [showHandName]="winner !== ''" [hand]="opponentHand" [backside]="dealt" class="opponent"></app-hand>
         <div class="house-tokens">
             <app-token [side]="'backside'"></app-token>
             <app-token [side]="'backside'"></app-token>
@@ -32,12 +30,11 @@
     <h2 
         [style.color]="winner === 'player' ? 'green' : 'black'">You
         <span *ngIf="winner"> bet on {{bet}} and</span>
-        <span *ngIf="winner === 'house'"> lost with:</span>
-        <span *ngIf="winner === 'player'"> win with:</span>
-        <span *ngIf="hands.length && !dealt"> {{ namedHandService.name(playerHand) }}</span>
+        <span *ngIf="winner === 'house'"> lost.</span>
+        <span *ngIf="winner === 'player'"> wins!</span>
     </h2>
     <div class="flex-container space-between">
-        <app-hand [hand]="playerHand"></app-hand>
+        <app-hand [showHandName]="winner !== ''" [hand]="playerHand"></app-hand>
         <div>
             <app-token (click)="dealt ? action('house') : 0" [side]="dealt || bet === 'house' ? 'front' : 'backside'">{{ dealt || bet === 'house' ? 'House' : '' }}</app-token>
             <app-token (click)="dealt ? action('tie') : 0" [side]="dealt || bet === 'tie' ? 'front' : 'backside'">{{ dealt || bet === 'tie' ? 'Tie' : '' }}</app-token>
