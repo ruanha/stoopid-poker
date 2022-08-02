@@ -1,6 +1,44 @@
 <div
-    class="flex-container"
-    [class.token-backside]="side === 'backside'"
-    [class.token-front]="side === 'front'">
+    *ngIf="side === 'front'"
+    class="flex-container token-front">
     <ng-content></ng-content>
+</div>
+
+<div *ngIf="side === 'backside'" id="page-wrap">
+    
+    <div class="badge">
+        <div class="token-backside"> 
+            <span class="char1">S</span>
+            <span class="char2">T</span>
+            <span class="char3">O</span>
+            <span class="char4">O</span>
+            <span class="char5">P</span>
+            <span class="char6">I</span>
+            <span class="char7">D</span>
+            <span class="char8"> </span>
+            <span class="char9">P</span>
+            <span class="char10">O</span>
+            <span class="char11">K</span>
+            <span class="char12">E</span>
+            <span class="char13">R</span>
+            <span class="char14">!</span>
+            <span class="char15"> </span>
+            <span class="char16">S</span>
+            <span class="char17">T</span>
+            <span class="char18">O</span>
+            <span class="char19">O</span>
+            <span class="char20">P</span>
+            <span class="char21">I</span>
+            <span class="char22">D</span>
+            <span class="char23"> </span>
+            <span class="char24">P</span>
+            <span class="char25">O</span>
+            <span class="char26">K</span>
+            <span class="char27">E</span>
+            <span class="char28">R</span>
+            <span class="char29">!</span>
+            <span class="char30"> </span>
+        </div>
+    </div>
+  
 </div>
