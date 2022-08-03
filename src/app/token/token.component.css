@@ -1,4 +1,4 @@
-.flex-container {
+.token-flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,13 +12,15 @@
 
 .token-backside {
     width: 10vw;
+    max-height: inherit;
     height: 10vw;
-    border: 1px solid black;
-    border-radius: 50%;
-    background-color: #e5e5f7;
-    opacity: 0.8;
-    background-image: radial-gradient(circle at center center, #444cf7, #e5e5f7), repeating-radial-gradient(circle at center center, #444cf7, #444cf7, 10px, transparent 20px, transparent 10px);
-    background-blend-mode: multiply;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .token-front {
@@ -27,5 +29,4 @@
     border: 1px solid black;
     border-radius: 50%;
     background-color: #e5e5f7;
-
 }

@@ -1,6 +1,12 @@
-<div
-    class="flex-container"
-    [class.token-backside]="side === 'backside'"
-    [class.token-front]="side === 'front'">
-    <ng-content></ng-content>
+<div class="token-flex-container">
+
+    <div *ngIf="side === 'front'" class="token-front">
+        <ng-content></ng-content>
+    </div>
+
+    <div *ngIf="side === 'backside'" class="token-backside">
+        <img src="../../assets/token.png" alt="">
+    </div>
+
 </div>
+
