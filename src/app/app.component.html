@@ -12,10 +12,6 @@
 
 <div class="flex-container column">
 
-    <h2 
-        [style.color]="winner === 'house' ? 'green' : 'black'">House
-        <span *ngIf="winner === 'house'"> wins!</span>
-    </h2>
     <div class="flex-container space-between house-container">
         <app-hand [showHandName]="winner !== ''" [hand]="opponentHand" [backside]="dealt" class="opponent"></app-hand>
         <div class="house-tokens">
@@ -24,6 +20,11 @@
             <app-token [side]="'backside'"></app-token>
         </div>
     </div>
+
+    <h2 class="house-title"
+        [style.color]="winner === 'house' ? 'green' : 'black'">House
+        <span *ngIf="winner === 'house'"> wins!</span>
+    </h2>
     
     <button class="deal-button" [disabled]="dealt" (click)="deal()">deal</button>
 
