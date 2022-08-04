@@ -30,13 +30,13 @@ h1 {
 
 @keyframes animate-score {
     0% {font-size: 16px;}
-    50% {font-size: 25px; color: green;}
+    50% {font-size: 20px; color: green;}
     100% {font-size: 16px;}
 }
 
 .score-animate {    
     animation-name: animate-score;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 .opponent {
@@ -63,5 +63,6 @@ h1 {
     font-size: 20px;
     font-weight: 600;
     max-height: 50px;
+    min-height: 35px;
     height: 5vw;
 }
