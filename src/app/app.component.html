@@ -32,7 +32,7 @@
         [style.color]="winner === 'player' ? 'green' : 'black'">You
         <span *ngIf="winner"> bet on {{bet}} and</span>
         <span *ngIf="winner === 'house'"> lost.</span>
-        <span *ngIf="winner === 'player'"> wins!</span>
+        <span *ngIf="winner === 'player'"> win!</span>
     </h2>
     <div class="flex-container space-between">
         <app-hand [showHandName]="winner !== ''" [hand]="playerHand"></app-hand>
