@@ -12,3 +12,13 @@ app-root {
     --red : #C40000;
     --black : #1B1F29;
 }
+
+button {
+    background-color: var(--gold);
+    color: var(--black);
+    border: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+}

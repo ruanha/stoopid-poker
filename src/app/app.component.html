@@ -25,7 +25,7 @@
         </div>
     </div>
     
-    <button [disabled]="dealt" (click)="deal()">deal</button>
+    <button class="deal-button" [disabled]="dealt" (click)="deal()">deal</button>
 
     <h2 
         [style.color]="winner === 'player' ? 'green' : 'black'">You
