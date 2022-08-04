@@ -1,0 +1,1 @@
+html body{display:flex;justify-content:center}app-root{max-width:700px;min-width:350px;width:75vw;--gold: #FFC400;--red: #C40000;--black: #1B1F29}button{background-color:var(--gold);color:var(--black);border:none}button:disabled{opacity:.5}
