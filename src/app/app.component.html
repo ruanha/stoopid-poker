@@ -21,9 +21,7 @@
         </div>
     </div>
 
-    <h2 class="house-title"
-        [style.color]="winner === 'house' ? 'green' : 'black'">House
-        <span *ngIf="winner === 'house'"> wins!</span>
+    <h2 class="house-title">House
     </h2>
     
     <button class="deal-button" [disabled]="dealt" (click)="deal()">deal</button>
