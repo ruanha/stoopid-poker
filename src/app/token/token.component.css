@@ -25,6 +25,7 @@ img {
 
 .token-front {
     font-weight: bold;
+    font-size: 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,3 +36,9 @@ img {
     color: var(--gold);
     border-radius: 50%;
 }
+
+@media screen and (min-width: 800px) {
+    .token-front {
+      font-size: 20px;
+    }
+  }
